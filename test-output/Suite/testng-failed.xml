@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="tests">
+  <parameter name="browser" value="firefox"/>
+  <test name="chromeTest">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="com.sstechqa.basic.CrossBrowser"/>
+    </classes>
+  </test> <!-- chromeTest -->
+  <test name="firefoxTest">
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="com.sstechqa.basic.CrossBrowser"/>
+    </classes>
+  </test> <!-- firefoxTest -->
+  <test name="firefoxTest(failed)" parallel="tests">
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="com.sstechqa.basic.CrossBrowser">
+        <methods>
+          <include name="browserTest" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- com.sstechqa.basic.CrossBrowser -->
+    </classes>
+  </test> <!-- firefoxTest(failed) -->
+</suite> <!-- Failed suite [Suite] -->
